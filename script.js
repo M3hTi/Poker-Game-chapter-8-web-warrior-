@@ -20,6 +20,18 @@ function render() {
             image.src = img
             deckElement.appendChild(image)
         });
+
+        // NOTE: Set the initial bank and bet values
+        pokerGame.currentBank = 500;
+        pokerGame.currentBet = 25;
+
+        // NOTE: Update bank display
+        bankDisplay.textContent = `BANK: ${pokerGame.currentBank.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+
+
+        betSelector.onchange = function() {
+            pokerGame.currentBet = parseInt(this.value);
+        };
     }
     showDeck()
 }
@@ -64,8 +76,7 @@ dealButton.addEventListener('click', () => {
 drawButton.addEventListener('click', () => {
     // Disable draw and stand buttons
     drawButton.disabled = true;
-    standButton.disabled = true;
-    
+    standButton.disabled = true;  
     // Clear card selections
     cardSlots.forEach(slot => {
         slot.classList.remove('selected');
