@@ -9,6 +9,9 @@ const cardSlots = document.querySelectorAll('.card-slot');
 const bankDisplay = document.querySelector('#bank-display');
 
 
+const statusMsg = document.querySelector('.statusBox');
+
+
 const images = ['./images/10 of hearts.png', './images/9 of hearts.png', './images/8 of hearts.png', './images/7 of hearts.png', './images/6 of hearts.png', './images/5 of hearts.png', './images/4 of hearts.png', './images/3 of hearts.png', './images/2 of hearts.png','./images/ace of hearts.png', './images/king of hearts.png', './images/queen of hearts.png', './images/jack of hearts.png']
 
 const deckElement = document.querySelector('.deck');
@@ -59,7 +62,7 @@ cardSlots.forEach((slot, index) => {
 // Deal button click handler
 dealButton.addEventListener('click', () => {
     if(pokerGame.currentBank >= pokerGame.currentBet) {
-        bankDisplay.value = pokerGame.placeBet();
+        bankDisplay.value = pokerGame.placeBet().toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         // Disable deal button and bet selector
         dealButton.disabled = true;
         betSelector.disabled = true;
@@ -74,7 +77,7 @@ dealButton.addEventListener('click', () => {
         });
 
     } else {
-        
+        statusMsg.textContent = "Insufficient Funds";
     }
 });
 
