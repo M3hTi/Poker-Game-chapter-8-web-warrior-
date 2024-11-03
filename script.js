@@ -6,7 +6,7 @@ const standButton = document.querySelector('.btn-stand');
 const resetButton = document.querySelector('.btn-reset');
 const betSelector = document.querySelector('.bet-selector');
 const cardSlots = document.querySelectorAll('.card-slot');
-const bankDisplay = document.querySelector('.bank-display');
+const bankDisplay = document.querySelector('#bank-display');
 
 
 const images = ['./images/10 of hearts.png', './images/9 of hearts.png', './images/8 of hearts.png', './images/7 of hearts.png', './images/6 of hearts.png', './images/5 of hearts.png', './images/4 of hearts.png', './images/3 of hearts.png', './images/2 of hearts.png','./images/ace of hearts.png', './images/king of hearts.png', './images/queen of hearts.png', './images/jack of hearts.png']
@@ -26,7 +26,7 @@ function render() {
         pokerGame.currentBet = 25;
 
         // NOTE: Update bank display
-        bankDisplay.textContent = `BANK: ${pokerGame.currentBank.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+        bankDisplay.value = `${pokerGame.currentBank.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
 
 
         betSelector.onchange = function() {
@@ -58,18 +58,24 @@ cardSlots.forEach((slot, index) => {
 
 // Deal button click handler
 dealButton.addEventListener('click', () => {
-    // Disable deal button and bet selector
-    dealButton.disabled = true;
-    betSelector.disabled = true;
-    
-    // Enable draw and stand buttons
-    drawButton.disabled = false;
-    standButton.disabled = false;
-    
-    // Clear any previously selected cards
-    cardSlots.forEach(slot => {
-        slot.classList.remove('selected');
-    });
+    if(pokerGame.currentBank >= pokerGame.currentBet) {
+        bankDisplay.value = pokerGame.placeBet();
+        // Disable deal button and bet selector
+        dealButton.disabled = true;
+        betSelector.disabled = true;
+        
+        // Enable draw and stand buttons
+        drawButton.disabled = false;
+        standButton.disabled = false;
+        
+        // Clear any previously selected cards
+        cardSlots.forEach(slot => {
+            slot.classList.remove('selected');
+        });
+
+    } else {
+        
+    }
 });
 
 // Draw button click handler
