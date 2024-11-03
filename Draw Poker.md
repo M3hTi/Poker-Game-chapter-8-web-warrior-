@@ -19,3 +19,5 @@ This code provides the basic button functionality for your Draw Poker game. Here
     - Resets all buttons to their initial state
     - Enables bet selection
     - Clears card selections
+
+![](./images%20for%20md%20file/code.png)
