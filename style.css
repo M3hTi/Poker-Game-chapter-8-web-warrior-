@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2d5a2d;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    color: #a0d8a0;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.game-board {
+    background: linear-gradient(to bottom, #1a472a, #0d3319);
+    border-radius: 15px;
+    padding: 20px;
+    width: 800px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.deck {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    perspective: 1000px;
+}
+
+.deck img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); */
+    transition: transform 0.2s ease;
+    backface-visibility: hidden;
+    transform: translateY(calc(var(--i) * 0.3px));
+}
+
+.card-slots {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.card-slot {
+    width: 80px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.card-slot.selected {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #4a4a4a !important;
+}
+
+.btn-deal {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-draw {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-stand {
+    background-color: #FFC107;
+    color: black;
+}
+
+.btn-reset {
+    background-color: #f44336;
+    color: white;
+}
+
+.bet-selector {
+    background-color: #4a4a4a;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.bank-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.instructions {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.payouts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.payouts-table th,
+.payouts-table td {
+    padding: 8px 15px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payouts-table th {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffd700;
+}
+
+.payouts-table td {
+    color: #fff;
+}
+
+/* Hover effects */
+.btn:not(:disabled):hover {
+    filter: brightness(1.2);
+}
+
+.bet-selector:hover {
+    background-color: #5a5a5a;
+}
+
+.card-slot:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}

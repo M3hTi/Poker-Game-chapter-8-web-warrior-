@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Poker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="title">Draw Poker</h1>
+        <div class="game-board">
+            <div class="deck"></div>
+            
+            <div class="bank-display">
+                BANK: $1000
+            </div>
+            
+            <div class="card-slots">
+                <div class="card-slot"></div>
+                <div class="card-slot"></div>
+                <div class="card-slot"></div>
+                <div class="card-slot"></div>
+                <div class="card-slot"></div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-deal">DEAL</button>
+                <button class="btn btn-draw">DRAW</button>
+                <button class="btn btn-stand">STAND</button>
+                <button class="btn btn-reset">RESET</button>
+                <select class="bet-selector">
+                    <option value="100">$100</option>
+                    <option value="200">$200</option>
+                    <option value="300">$300</option>
+                    <option value="400">$400</option>
+                    <option value="500">$500</option>
+                </select>
+            </div>
+
+            <div class="instructions">
+                Select the size of your bet, then click Deal to deal the hand. To draw new cards, click the cards to be discarded and then click the Draw button. To stand pat, click the Stand button. To restart the game, click the Reset button.
+            </div>
+
+            <table class="payouts-table">
+                <tr>
+                    <th>Hand</th>
+                    <th>Payoff</th>
+                    <th>Hand</th>
+                    <th>Payoff</th>
+                </tr>
+                <tr>
+                    <td>Royal Flush</td>
+                    <td>x 250</td>
+                    <td>Straight</td>
+                    <td>x 4</td>
+                </tr>
+                <tr>
+                    <td>Straight Flush</td>
+                    <td>x 50</td>
+                    <td>3 of a Kind</td>
+                    <td>x 3</td>
+                </tr>
+                <tr>
+                    <td>4 of a Kind</td>
+                    <td>x 25</td>
+                    <td>2 Pair</td>
+                    <td>x 2</td>
+                </tr>
+                <tr>
+                    <td>Full House</td>
+                    <td>x 9</td>
+                    <td>Jacks or Better</td>
+                    <td>x 1</td>
+                </tr>
+                <tr>
+                    <td>Flush</td>
+                    <td>x 6</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="objects.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
