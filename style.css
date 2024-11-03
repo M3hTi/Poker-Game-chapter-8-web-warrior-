@@ -124,7 +124,19 @@ body {
     cursor: pointer;
 }
 
-.bank-display {
+
+label{
+    color: #a0d8a0;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    right: 240px;
+}
+
+#bank-display {
     position: absolute;
     top: 20px;
     right: 20px;
