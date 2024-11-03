@@ -113,6 +113,10 @@ resetButton.addEventListener('click', () => {
     standButton.disabled = true;
     resetButton.disabled = false;
     betSelector.disabled = false;
+
+    pokerGame.currentBank = 500;
+    bankDisplay.value = pokerGame.currentBank.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    betSelector.value = 25;
     
     // Clear any selected cards
     cardSlots.forEach(slot => {
