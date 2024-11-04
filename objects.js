@@ -8,3 +8,22 @@ const pokerGame = {
     }
 }
 
+
+function PokerCard(cardSuit,cardRank){
+    this.suit = cardSuit
+    this.rank = cardRank
+}
+
+function PokerDeck () {
+    const siuts = ['clubs', 'spades', 'hearts', 'diamonds']
+    const rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+    this.cards = []
+    for (let i = 0; i < siuts.length; i++) {
+        for (let j = 0; j < rank.length; j++) {
+            this.cards.push(new PokerCard(siuts[i], rank[j]))
+        }
+    }
+}
+
+const myDeck = new PokerDeck()
+console.log(myDeck.cards);
