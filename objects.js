@@ -29,6 +29,11 @@ function PokerDeck () {
             return 0.5 - Math.random()
         })
     }
+    // NOTE: Method to deal cards from the deck into a hand
+    this.dealTo = function (PokerHand) {
+        const cardsDealt = PokerHand.cards.length
+        PokerHand.cards = this.cards.split(0, cardsDealt) 
+    }
 }
 
 
