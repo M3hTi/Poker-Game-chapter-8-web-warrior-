@@ -39,6 +39,10 @@ function render() {
         // NOTE: Create a deck of shuffled cards
         let myDeck = new PokerDeck();
         myDeck.shuffle();
+
+        // NOTE: Create an empty poker hand object
+        const myHand = new PokerHand(5);
+
     }
     showDeck()
 }
