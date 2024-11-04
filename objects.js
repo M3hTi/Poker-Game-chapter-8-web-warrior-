@@ -23,7 +23,14 @@ function PokerDeck () {
             this.cards.push(new PokerCard(siuts[i], rank[j]))
         }
     }
+    // NOTE: Method to randomly sort the cards in the deck
+    this.shuffle = function () {
+        this.cards.sort(function () {
+            return 0.5 - Math.random()
+        })
+    }
 }
 
 const myDeck = new PokerDeck()
 console.log(myDeck.cards);
+console.log(myDeck.shuffle());
