@@ -32,7 +32,7 @@ function PokerDeck () {
     // NOTE: Method to deal cards from the deck into a hand
     this.dealTo = function (PokerHand) {
         const cardsDealt = PokerHand.cards.length
-        PokerHand.cards = this.cards.split(0, cardsDealt) 
+        PokerHand.cards = this.cards.splice(0, cardsDealt) 
     }
 }
 
