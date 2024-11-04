@@ -30,3 +30,9 @@ function PokerDeck () {
         })
     }
 }
+
+
+// NOTE:  Constructor function for poker hands
+function PokerHand (handLength){
+    this.cards = new Array(handLength)
+}
