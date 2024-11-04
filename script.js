@@ -35,6 +35,10 @@ function render() {
         betSelector.onchange = function() {
             pokerGame.currentBet = parseInt(this.value);
         };
+
+        // NOTE: Create a deck of shuffled cards
+        let myDeck = new PokerDeck();
+        myDeck.shuffle();
     }
     showDeck()
 }
