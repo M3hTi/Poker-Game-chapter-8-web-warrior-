@@ -30,7 +30,3 @@ function PokerDeck () {
         })
     }
 }
-
-const myDeck = new PokerDeck()
-console.log(myDeck.cards);
-console.log(myDeck.shuffle());
