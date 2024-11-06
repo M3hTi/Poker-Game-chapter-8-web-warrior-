@@ -14,6 +14,11 @@ function PokerCard(cardSuit,cardRank){
     this.rank = cardRank
 }
 
+// NOTE: Method to reference the image of the poker card
+PokerCard.prototype.cardImg = function(){
+    return `./images/${this.rank} of ${this.suit}.png`
+}
+
 function PokerDeck () {
     const siuts = ['clubs', 'spades', 'hearts', 'diamonds']
     const rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
