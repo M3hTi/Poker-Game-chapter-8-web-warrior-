@@ -36,18 +36,22 @@ body {
     top: 20px;
     left: 20px;
     width: 80px;
+    height: 112px; /* Aspect ratio for standard playing cards */
     perspective: 1000px;
 }
 
 .deck img {
-    width: 100%;
+    width: 80px;
+    height: 112px;
     position: absolute;
     left: 0;
+    top: 0;
     border-radius: 5px;
-    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
+    transform: translateY(calc(var(--i) * 0.3px)) rotate(calc(var(--i) * 0.1deg));
     transition: transform 0.2s ease;
-    backface-visibility: hidden;
-    transform: translateY(calc(var(--i) * 0.3px));
+    z-index: calc(52 - var(--i));
 }
 
 .card-slots {

@@ -12,7 +12,6 @@ const bankDisplay = document.querySelector('#bank-display');
 const statusMsg = document.querySelector('.statusBox');
 
 
-const images = ['./images/10 of hearts.png', './images/9 of hearts.png', './images/8 of hearts.png', './images/7 of hearts.png', './images/6 of hearts.png', './images/5 of hearts.png', './images/4 of hearts.png', './images/3 of hearts.png', './images/2 of hearts.png','./images/ace of hearts.png', './images/king of hearts.png', './images/queen of hearts.png', './images/jack of hearts.png']
 
 const deckElement = document.querySelector('.deck');
 
@@ -20,11 +19,11 @@ function render() {
     let myDeck;
     let myHand;
     function showDeck() {
-        images.forEach(img => {
-            const image = document.createElement('img');
-            image.src = img
-            deckElement.appendChild(image)
-        });
+        // images.forEach(img => {
+        //     const image = document.createElement('img');
+        //     image.src = img
+        //     deckElement.appendChild(image)
+        // });
 
         // NOTE: Set the initial bank and bet values
         pokerGame.currentBank = 500;
@@ -44,6 +43,16 @@ function render() {
 
         // NOTE: Create an empty poker hand object
         myHand = new PokerHand(5);
+
+
+        myDeck.cards.forEach((card,index) => {
+            const image = document.createElement('img');
+            image.src = card.cardImg();
+            
+            // Set a custom property for stacking
+            image.style.setProperty('--i', index);
+            deckElement.appendChild(image);
+        });
 
     }
     showDeck()
