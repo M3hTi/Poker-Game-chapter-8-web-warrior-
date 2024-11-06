@@ -84,7 +84,9 @@ function render() {
 
             // NOTE: Deal 5 cards from the deck to the hand
             myDeck.dealTo(myHand)
-            console.log(myDeck, myHand);
+            for (let index = 0; index < cardSlots.length; index++) {
+               cardSlots[index].innerHTML = `<img src="${myHand.cards[index].cardImg()}" alt="Card ${index + 1}">`;
+            }
 
             // Disable deal button and bet selector
             dealButton.disabled = true;
