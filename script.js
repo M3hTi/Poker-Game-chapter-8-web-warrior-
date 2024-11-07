@@ -129,9 +129,23 @@ function render() {
 
     // Draw button click handler
     drawButton.addEventListener('click', () => {
+
+        cardSlots.forEach(function(slot, index){
+            if(slot.children[0].src.includes('/images/cardback.png')) {
+                // NOTE: Replace the card and its image on the table
+                myHand.replaceCard(index, myDeck)
+                slot.children[0].src = myHand.cards[index].cardImg();
+            }
+        })
+        
+
+
+
         // Disable draw and stand buttons
         drawButton.disabled = true;
-        standButton.disabled = true;  
+        standButton.disabled = true;
+        dealButton.disabled = false;
+        betSelector.disabled = false;
         // Clear card selections
         cardSlots.forEach(slot => {
             slot.classList.remove('selected');
