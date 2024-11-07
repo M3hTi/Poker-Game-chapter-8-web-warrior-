@@ -98,6 +98,15 @@ function render() {
                cardSlots[index].innerHTML = `<img src="./images/cardback.png" alt="Card ${index + 1}">`;
             }
 
+            myDeck.cards.forEach((card,index) => {
+                const image = document.createElement('img');
+                image.src = card.cardImg();
+                
+                // Set a custom property for stacking
+                image.style.setProperty('--i', index);
+                deckElement.appendChild(image);
+            });
+
             // Disable deal button and bet selector
             dealButton.disabled = true;
             betSelector.disabled = true;
