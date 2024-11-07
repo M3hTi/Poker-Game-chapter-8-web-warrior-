@@ -19,11 +19,6 @@ function render() {
     let myDeck;
     let myHand;
     function showDeck() {
-        // images.forEach(img => {
-        //     const image = document.createElement('img');
-        //     image.src = img
-        //     deckElement.appendChild(image)
-        // });
 
         // NOTE: Set the initial bank and bet values
         pokerGame.currentBank = 500;
@@ -93,8 +88,9 @@ function render() {
 
             // NOTE: Deal 5 cards from the deck to the hand
             myDeck.dealTo(myHand)
+            console.log(myDeck);
             for (let index = 0; index < cardSlots.length; index++) {
-               cardSlots[index].innerHTML = `<img src="${myHand.cards[index].cardImg()}" alt="Card ${index + 1}">`;
+               cardSlots[index].innerHTML = `<img src="./images/cardback.png" alt="Card ${index + 1}">`;
             }
 
             // Disable deal button and bet selector
