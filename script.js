@@ -56,18 +56,23 @@ function render() {
 
     // Add click event listeners to card slots for selection
     cardSlots.forEach((slot, index) => {
-        slot.addEventListener('click', () => {
+        slot.addEventListener('click', function(){
             // Only allow card selection when draw button is enabled
             if (!drawButton.disabled) {
                 slot.classList.toggle('selected');
+                if(this.children[0].src.includes('/images/cardback.png')) {
+                    this.children[0].src = myHand.cards[index].cardImg();
+                } else {
+                    this.children[0].src = '/images/cardback.png';
+                }
                 
                 // Enable/disable draw button based on if any cards are selected
-                const selectedCards = document.querySelectorAll('.card-slot.selected');
-                if (selectedCards.length > 0) {
-                    drawButton.disabled = false;
-                } else {
-                    drawButton.disabled = true;
-                }
+                // const selectedCards = document.querySelectorAll('.card-slot.selected');
+                // if (selectedCards.length > 0) {
+                //     drawButton.disabled = false;
+                // } else {
+                //     drawButton.disabled = true;
+                // }
             }
         });
     });
