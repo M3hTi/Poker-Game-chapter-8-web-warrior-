@@ -130,7 +130,7 @@ function render() {
     // Draw button click handler
     drawButton.addEventListener('click', () => {
 
-        cardSlots.forEach(function(slot, index){
+        cardSlots.forEach((slot, index) => {
             if(slot.children[0].src.includes('/images/cardback.png')) {
                 // NOTE: Replace the card and its image on the table
                 myHand.replaceCard(index, myDeck)
@@ -149,6 +149,16 @@ function render() {
         // Clear card selections
         cardSlots.forEach(slot => {
             slot.classList.remove('selected');
+        });
+
+
+        myDeck.cards.forEach((card,index) => {
+            const image = document.createElement('img');
+            image.src = card.cardImg();
+
+            // Set a custom property for stacking
+            image.style.setProperty('--i', index);
+            deckElement.appendChild(image);
         });
         
         // Enable reset button
