@@ -163,6 +163,9 @@ function render() {
 
 
         statusMsg.textContent = myHand.getHandValue();
+
+        // NOTE: Update the bank value
+        bankDisplay.value = pokerGame.payBet(statusMsg.textContent).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         
         // Enable reset button
         resetButton.disabled = false;
@@ -182,6 +185,9 @@ function render() {
         resetButton.disabled = false;
 
         statusMsg.textContent = myHand.getHandValue();
+
+        // NOTE: Update the bank value
+        bankDisplay.value = pokerGame.payBet(statusMsg.textContent).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     });
 
 
