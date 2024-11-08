@@ -160,6 +160,9 @@ function render() {
             image.style.setProperty('--i', index);
             deckElement.appendChild(image);
         });
+
+
+        statusMsg.textContent = myHand.getHandValue();
         
         // Enable reset button
         resetButton.disabled = false;
@@ -170,11 +173,15 @@ function render() {
     // Stand button click handler
     standButton.addEventListener('click', () => {
         // Disable draw and stand buttons
+        dealButton.disabled = false;
+        betSelector.disabled = false;
         drawButton.disabled = true;
         standButton.disabled = true;
         
         // Enable reset button
         resetButton.disabled = false;
+
+        statusMsg.textContent = myHand.getHandValue();
     });
 
 
